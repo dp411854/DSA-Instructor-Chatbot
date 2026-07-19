@@ -18,7 +18,7 @@
   // backend (e.g. frontend on Vercel/Netlify, backend on Render) — in that
   // case, set this to your backend's full URL, e.g.:
   //  const API_BASE = 'https://dsa-instructor-chatbot-950s.onrender.com/api';
-  const API_BASE = '/api';
+  const API_BASE = 'https://dsa-instructor-chatbot-950s.onrender.com/api';
 
   const SESSION_KEY = 'dsa-mentor-session-id';
   const THEME_KEY = 'dsa-mentor-theme';
