@@ -24,12 +24,15 @@ const app = express();
 // here and rely on the other helmet protections; add a tailored CSP if you
 // deploy this publicly.
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(
-  cors({
-    origin: config.CLIENT_ORIGIN === '*' ? true : config.CLIENT_ORIGIN.split(','),
-    methods: ['GET', 'POST', 'DELETE'],
-  })
-);
+// CORS Configuration
+app.use(cors({
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: false
+}));
+
+// Handle preflight requests
+app.options('*', cors());
 
 // Limit request body size to prevent abuse / huge payload attacks.
 app.use(express.json({ limit: '100kb' }));
