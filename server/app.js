@@ -32,7 +32,7 @@ app.use(cors({
 }));
 
 // Handle preflight requests
-app.options('*', cors());
+app.options(/.*/, cors());
 
 // Limit request body size to prevent abuse / huge payload attacks.
 app.use(express.json({ limit: '100kb' }));
